@@ -1,0 +1,13 @@
+{
+    "user":[
+        {
+            "fname":"Ishita Bhargava",
+            "username": "ishita12",
+            "password": "abc1234",
+            "email":"ishita@gmail.com",
+            "address":"103, abcd bulding",
+            "id": 1
+        }
+    ]
+}
+

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './form.css'
+import Details from './Details'
+import {withRouter} from 'react-router-dom'
 
 class register extends Component {
     constructor(props) {
@@ -10,8 +12,9 @@ class register extends Component {
             userName: '',
             password:'',
             email:'',
-            address:''
+            address:'',
         }
+        
     }
     handlename= event =>{
         this.setState({
@@ -40,9 +43,8 @@ class register extends Component {
             address : event.target.value
         })
     }
-    
     handleSubmit= event=> {
-        
+        this.props.history.push('./details')
     }
     
         render() {
@@ -73,7 +75,7 @@ class register extends Component {
                     </div>
                     <br></br>
                     <div>
-                        <label>email ID : </label>
+                        <label>Email ID : </label>
                         <input type="email" 
                         value={email}
                         onChange={this.handleEmail}/>
@@ -88,12 +90,12 @@ class register extends Component {
                     </div>
                     <br></br>
                     <div>
-                        <button type="submit">Submit</button>
+                        <button className="btn btn-dark" type="submit">Submit</button>
                     </div>
                     <br></br>
                     <br></br>
                     <div>
-                        <a href="">Go to Login Page</a>
+                        <a href="/login">Go to Login Page</a>
                     </div>
                 </form>
                 </>
@@ -101,4 +103,4 @@ class register extends Component {
         }
 }
 
-export default register
+export default withRouter(register)

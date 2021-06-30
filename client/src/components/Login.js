@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import Details from './Details'
 import './form.css'
+import {withRouter} from 'react-router-dom'
 
 class login extends Component {
     constructor(props) {
@@ -22,33 +24,35 @@ class login extends Component {
         })
     }
     handleSubmit= event=> {
-
+        this.props.history.push('./details')
     }
 
     render() {
         return (
             <>
-            <h2 className="align">lOGIN Page</h2>
+            <h2 className="align">Login Page</h2>
             <form onSubmit={this.handleSubmit}>
                 <div>
                     <label>Username : </label>
                     <input type="text" 
-                    value={username}
+                    value={this.state.username}
                     onChange={this.handleUsername}/>
                 </div>
+                <br></br>
                 <div>
                     <label>Password : </label>
                     <input type="password" 
-                    value={password}
+                    value={this.state.password}
                     onChange={this.handlePassword}/>
                 </div>
+                <br></br>
                 <div>
                     <button type="submit">Login</button>
                 </div>
                 <br></br>
                 <br></br>
                 <div>
-                    <a href="">Go to Registration Page</a>
+                    <a href="/">Go to Registration Page</a>
                 </div>
             </form>
             </>
@@ -56,4 +60,4 @@ class login extends Component {
     }
 }
 
-export default login
+export default withRouter(login)
