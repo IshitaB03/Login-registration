@@ -1,57 +1,22 @@
-import React, { Component } from 'react'
-import './form.css'
-import Details from './Details'
-import {withRouter} from 'react-router-dom'
+import React,{useState} from 'react'
 
-class register extends Component {
-    constructor(props) {
-        super(props)
+function Edit() {
+    const initialValues={
+        fname:'',
+        userName: '',
+        password:'',
+        email:'',
+        address:'',
+    }
+    const [user,setUser]= useState(initialValues)
     
-        this.state = {
-            fname:'',
-            userName: '',
-            password:'',
-            email:'',
-        }
-        this.inputRef = React.createRef()
-    }
-    handlename= event =>{
-        this.setState({
-            fname: event.target.value
-        })
-    }
-    handleUsername= event =>{
-        this.setState({
-            username: event.target.value
-        })
-    }
-    handlePassword= event =>{
-        this.setState({
-            password : event.target.value
-        })
-    }
-    
-    handleEmail = event =>{
-        this.setState({
-            email : event.target.value
-        })
-    }
-    
-    handleSubmit= async (event)=> {
-        this.props.history.push('./details')
-    }
-    componentDidMount(){
-        this.inputRef.current.focus()
-    }
-        render() {
-            const {fname,username,password,email,address}= this.state
-            return (
+    return (
                 <>
                 <h2 className="align">Registration Page</h2>
                 <form onSubmit={this.handleSubmit} > 
                     <div>
                         <label>Full Name : </label>
-                        <input type="text" ref={this.inputRef} 
+                        <input type="text" 
                         value={fname}
                         onChange={this.handlename}/>
                     </div>
@@ -78,6 +43,14 @@ class register extends Component {
                     </div>
                     <br></br>
                     <div>
+                        <label>Address : </label>
+                        <textarea
+                        value={address}
+                        onChange={this.handleAddress}
+                        />
+                    </div>
+                    <br></br>
+                    <div>
                         <button className="btn btn-dark" type="submit">Submit</button>
                     </div>
                     <br></br>
@@ -87,8 +60,7 @@ class register extends Component {
                     </div>
                 </form>
                 </>
-            )
-        }
+    )
 }
 
-export default withRouter(register)
+export default Edit

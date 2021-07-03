@@ -5,7 +5,7 @@ const FormSchema = new mongoose.Schema({
         type: String,
         required: true
     }, 
-    userName: {
+    username: {
         type: String,
         required: true
     }, 
@@ -16,14 +16,6 @@ const FormSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true
-    }, 
-    pno: {
-        type: Number,
-        required: true
-    }, 
-    Address: {
-        type: String,
-        require: false,
     }
 })
 

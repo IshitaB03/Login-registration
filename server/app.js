@@ -10,6 +10,11 @@ con.on('open',()=>{
     console.log("Connected")
 })
 
+app.use(express.json())
+
+
+require('./routes/users.js')(app);
+
 app.listen(9000,()=>{
     console.log('Server Started')
 })
